@@ -48,7 +48,8 @@ def window_moveTo(x: int, y: int, monitor: int = 0):
         y(int) - the y coordinate to move the window to
         [optional] monitor(int) - the monitor to move the window to, start from 1
     """
-    if(monitor > 0):
+    monitor = int(monitor)
+    if(monitor > 0 and monitor < len(mss.mss().monitors)):
         monitor = mss.mss().monitors[monitor]
         x = monitor['left'] + int(x)
         y = monitor['top'] + int(y)
